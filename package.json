@@ -5,7 +5,9 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "classnames": "^2.2.6",
+    "eslint-utils": "^1.4.3",
     "gh-pages": "^2.0.1",
+    "mixin-deep": "^2.0.1",
     "pnotify": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
