@@ -6,9 +6,11 @@ import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
 const filterContacts = (contacts, filters) => {
-  return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filters.toLowerCase()),
-  );
+  if (contacts) {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filters.toLowerCase()),
+    );
+  }
 };
 
 const findToMatch = (contacts, contact) => {
@@ -31,6 +33,7 @@ export default class App extends Component {
   }
 
   // componentDidUpdate(prevProps, prevState) {
+
   //   const { contacts } = this.state;
   //   if (prevState.contacts !== contacts) {
   //     localStorage.setItem('contacts', JSON.stringify(contacts));
