@@ -5,9 +5,9 @@ import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
-const filterContacts = (contacts, filter) => {
+const filterContacts = (contacts, filters) => {
   return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase()),
+    contact.name.toLowerCase().includes(filters.toLowerCase()),
   );
 };
 
