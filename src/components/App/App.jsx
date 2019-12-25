@@ -32,13 +32,12 @@ export default class App extends Component {
     console.log(this.state);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-
-  //   const { contacts } = this.state;
-  //   if (prevState.contacts !== contacts) {
-  //     localStorage.setItem('contacts', JSON.stringify(contacts));
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
