@@ -23,18 +23,18 @@ export default class App extends Component {
     filter: '',
   };
 
-  // componentDidMount() {
-  //   const savedContacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(savedContacts);
-  //   this.setState({ contacts: parsedContacts });
-  // }
+  componentDidMount() {
+    const savedContacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(savedContacts);
+    this.setState({ contacts: parsedContacts });
+  }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { contacts } = this.state;
-  //   if (prevState.contacts !== contacts) {
-  //     localStorage.setItem('contacts', JSON.stringify(contacts));
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
