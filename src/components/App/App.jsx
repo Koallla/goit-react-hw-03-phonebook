@@ -6,11 +6,9 @@ import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
 const filterContacts = (contacts, filters) => {
-  if (contacts) {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filters.toLowerCase()),
-    );
-  }
+  return contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filters.toLowerCase()),
+  );
 };
 
 const findToMatch = (contacts, contact) => {
@@ -27,9 +25,13 @@ export default class App extends Component {
 
   componentDidMount() {
     const savedContacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(savedContacts);
-    this.setState({ contacts: parsedContacts });
-    console.log(this.state);
+    console.log(JSON.parse(savedContacts));
+    console.log(this.state.contacts);
+
+    if (savedContacts) {
+      const parsedContacts = JSON.parse(savedContacts);
+      this.setState({ contacts: parsedContacts });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
