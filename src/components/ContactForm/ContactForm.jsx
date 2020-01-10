@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PNotify from 'pnotify/dist/es/PNotify';
 import shortid from 'short-id';
 import T from 'prop-types';
 import styles from './contactForm.module.css';
+import 'pnotify/dist/PNotifyBrightTheme.css';
 
 export default class FormInput extends Component {
   static propTypes = {
@@ -14,12 +16,10 @@ export default class FormInput extends Component {
   };
 
   handleChange = e => {
-    if (e.target.name === 'name') {
-      this.setState({ name: e.target.value });
-    }
-
-    if (e.target.name === 'number' && !Number.isNaN(Number(e.target.value))) {
-      this.setState({ number: e.target.value });
+    if (e.target.name === 'number' && Number.isNaN(Number(e.target.value))) {
+      PNotify.alert('Input only number');
+    } else {
+      this.setState({ [e.target.name]: e.target.value });
     }
   };
 
@@ -41,7 +41,7 @@ export default class FormInput extends Component {
         number: '',
       });
     } else {
-      alert('You have not entered a number');
+      PNotify.alert('You have not entered a number');
     }
   };
 
