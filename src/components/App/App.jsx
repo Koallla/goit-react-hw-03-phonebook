@@ -4,18 +4,7 @@ import styles from './app.module.css';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
-
-const filterContacts = (contacts, filters) => {
-  return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filters.toLowerCase()),
-  );
-};
-
-const findToMatch = (contacts, contact) => {
-  return contacts.find(
-    element => element.name.toLowerCase() === contact.name.toLowerCase(),
-  );
-};
+import { filterContacts, findToMatch } from '../FilterContact/filterContact';
 
 export default class App extends Component {
   state = {
@@ -25,8 +14,6 @@ export default class App extends Component {
 
   componentDidMount() {
     const savedContacts = localStorage.getItem('contacts');
-    console.log(JSON.parse(savedContacts));
-    console.log(this.state.contacts);
 
     if (savedContacts) {
       const parsedContacts = JSON.parse(savedContacts);
